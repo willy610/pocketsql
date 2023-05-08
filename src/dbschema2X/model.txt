@@ -1,0 +1,29 @@
+TABLE
+    * tablename
+
+ENTITY_PK
+   * tablename
+   * pk
+
+ANY_PLAIN_ATTR
+   * tablename
+   * colname
+    diverse
+
+ANY_REL_ATTR
+   * tablename
+   * other_tbl
+   * prefix
+   diverse
+
+RELAT_TABLE
+    * tablename
+    * other_tbl
+    prefix
+
+RELAT_TABLE_COLUMN
+    * tablename
+    * other_tbl
+    * othercolumn
+    diverse
+

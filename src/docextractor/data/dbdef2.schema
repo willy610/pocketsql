@@ -1,0 +1,34 @@
+CREATE 
+  ENTITYTABLE 
+  (
+    module
+    PRIMARYKEY ( module 'varchar(100)' )
+    PLAINCOLUMN (htmlid 'varchar(100)')
+    
+    source
+    PRIMARYKEY ( filename 'varchar(100)' )
+    PLAINCOLUMN (htmlid 'varchar(100)')
+    
+    class
+    PRIMARYKEY ( class 'varchar(100)' )
+    PLAINCOLUMN (htmlid 'varchar(100)')
+
+    superclasslist
+    PRIMARYKEY ( superclasslist 'varchar(100)' )
+    PLAINCOLUMN (htmlid 'varchar(100)')
+  )
+  RELATIONSHIPTABLE
+  (
+    modulesource
+    PRIMARYKEY (
+        PARENTS (module, source)
+    )
+    PLAINCOLUMN (TBD 'varchar(20)')
+
+    classsuperclasslist
+    PRIMARYKEY (
+        PARENTS (class, superclasslist)
+    )
+    PLAINCOLUMN (TBD 'varchar(20)')
+  )
+  ;

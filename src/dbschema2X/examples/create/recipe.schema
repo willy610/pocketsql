@@ -1,0 +1,52 @@
+CREATE 
+  ENTITYTABLE 
+  (
+    Livsmedel 
+      PRIMARYKEY ( Livsmedel 'varchar(100)' )
+      PLAINCOLUMN (kcal 'int(11)', 
+        notering 'varchar(253)', 
+        pris 'float' )
+  
+    Kategori  
+      PRIMARYKEY ( Kategori 'varchar(30)')
+      PLAINCOLUMN (Kategoribeskrivning 'varchar(255)')
+
+    Recept
+      PRIMARYKEY ( Recept 'varchar(50)')
+      PLAINCOLUMN (AntalPortioner 'int(11) null', 
+        TillagningsTid 'int(11) null',
+        Ursprung 'varchar(100)',
+        Beskrivning 'varchar(10)'
+        )
+  )
+  RELATIONSHIPTABLE
+  (
+    KategoriOchRecept
+      PRIMARYKEY (
+        PARENTS (Kategori, Recept)
+    )
+    Receptsteg
+      PRIMARYKEY (
+        PARENTS (Recept)
+        OWNPRIMARY (Steg 'varchar(3)')
+      )
+      PLAINCOLUMN (Kortbeskrivning 'varchar(20)',
+        Minuter 'int(11)',
+        Beskrivning 'varchar(253)'
+      )
+    Receptstegsingrediens
+      PRIMARYKEY (
+        PARENTS (Receptsteg, Livsmedel)
+      )
+      PLAINCOLUMN (Antal 'float',
+        Enhet 'varchar(32)'
+      )
+    ReplaceIngred
+      PRIMARYKEY(
+        PARENTS (Livsmedel, Livsmedel PREFIXED 'NYTT_')
+      )
+      RELATIVECOLUMN ( KategoriOchRecept PREFIXED 'pref_')
+      PLAINCOLUMN (FOM 'float')
+  )
+
+;  

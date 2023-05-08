@@ -1,0 +1,30 @@
+CREATE 
+  ENTITYTABLE 
+  (
+    module
+    PRIMARYKEY ( module 'varchar(100)' )
+    PLAINCOLUMN (htmlid 'varchar(100)')
+    
+    class
+    PRIMARYKEY ( class 'varchar(100)' )
+    PLAINCOLUMN (htmlid 'varchar(100)')
+
+    method
+    PRIMARYKEY ( method 'varchar(100)' )
+    PLAINCOLUMN (htmlid 'varchar(100)')
+  )
+  RELATIONSHIPTABLE
+  (
+    classmethod
+    PRIMARYKEY (
+        PARENTS (class, method)
+    )
+    PLAINCOLUMN (TBD 'varchar(20)')
+
+    modulemethod
+    PRIMARYKEY (
+        PARENTS (module, method)
+    )
+    PLAINCOLUMN (TBD 'varchar(20)')
+  )
+  ;

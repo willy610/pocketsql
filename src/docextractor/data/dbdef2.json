@@ -1,0 +1,214 @@
+{
+    "tables": [
+        {
+            "name": "module",
+            "kind": "entity",
+            "the_lastused_rowid": 0,
+            "the_columns": [
+                "module",
+                "htmlid"
+            ],
+            "the_pk_col_names": [
+                "module"
+            ],
+            "index_own_pk": [],
+            "the_col_index_pk": [
+                0
+            ],
+            "the_parents": [],
+            "the_column_attributes": [
+                {
+                    "name": "htmlid",
+                    "is_optional": false,
+                    "is_unique": false
+                }
+            ],
+            "the_related_columns": [],
+            "pk_child_tables_names": [
+                "modulesource"
+            ],
+            "relatives_childs_tables_names": []
+        },
+        {
+            "name": "source",
+            "kind": "entity",
+            "the_lastused_rowid": 0,
+            "the_columns": [
+                "filename",
+                "htmlid"
+            ],
+            "the_pk_col_names": [
+                "filename"
+            ],
+            "index_own_pk": [],
+            "the_col_index_pk": [
+                0
+            ],
+            "the_parents": [],
+            "the_column_attributes": [
+                {
+                    "name": "htmlid",
+                    "is_optional": false,
+                    "is_unique": false
+                }
+            ],
+            "the_related_columns": [],
+            "pk_child_tables_names": [
+                "modulesource"
+            ],
+            "relatives_childs_tables_names": []
+        },
+        {
+            "name": "class",
+            "kind": "entity",
+            "the_lastused_rowid": 0,
+            "the_columns": [
+                "class",
+                "htmlid"
+            ],
+            "the_pk_col_names": [
+                "class"
+            ],
+            "index_own_pk": [],
+            "the_col_index_pk": [
+                0
+            ],
+            "the_parents": [],
+            "the_column_attributes": [
+                {
+                    "name": "htmlid",
+                    "is_optional": false,
+                    "is_unique": false
+                }
+            ],
+            "the_related_columns": [],
+            "pk_child_tables_names": [
+                "classsuperclasslist"
+            ],
+            "relatives_childs_tables_names": []
+        },
+        {
+            "name": "superclasslist",
+            "kind": "entity",
+            "the_lastused_rowid": 0,
+            "the_columns": [
+                "superclasslist",
+                "htmlid"
+            ],
+            "the_pk_col_names": [
+                "superclasslist"
+            ],
+            "index_own_pk": [],
+            "the_col_index_pk": [
+                0
+            ],
+            "the_parents": [],
+            "the_column_attributes": [
+                {
+                    "name": "htmlid",
+                    "is_optional": false,
+                    "is_unique": false
+                }
+            ],
+            "the_related_columns": [],
+            "pk_child_tables_names": [
+                "classsuperclasslist"
+            ],
+            "relatives_childs_tables_names": []
+        },
+        {
+            "name": "modulesource",
+            "kind": "relation",
+            "the_lastused_rowid": 0,
+            "the_columns": [
+                "module",
+                "filename",
+                "TBD"
+            ],
+            "the_pk_col_names": [
+                "module",
+                "filename"
+            ],
+            "index_own_pk": [],
+            "the_col_index_pk": [
+                0,
+                1
+            ],
+            "the_parents": [
+                {
+                    "fk_name": "fk_1",
+                    "local_name": "module",
+                    "to_parent_name": "module",
+                    "from_columns_in_pk": [
+                        0
+                    ]
+                },
+                {
+                    "fk_name": "fk_2",
+                    "local_name": "source",
+                    "to_parent_name": "source",
+                    "from_columns_in_pk": [
+                        1
+                    ]
+                }
+            ],
+            "the_column_attributes": [
+                {
+                    "name": "TBD",
+                    "is_optional": false,
+                    "is_unique": false
+                }
+            ],
+            "the_related_columns": [],
+            "pk_child_tables_names": [],
+            "relatives_childs_tables_names": []
+        },
+        {
+            "name": "classsuperclasslist",
+            "kind": "relation",
+            "the_lastused_rowid": 0,
+            "the_columns": [
+                "class",
+                "superclasslist",
+                "TBD"
+            ],
+            "the_pk_col_names": [
+                "class",
+                "superclasslist"
+            ],
+            "index_own_pk": [],
+            "the_col_index_pk": [
+                0,
+                1
+            ],
+            "the_parents": [
+                {
+                    "fk_name": "fk_3",
+                    "local_name": "class",
+                    "to_parent_name": "class",
+                    "from_columns_in_pk": [
+                        0
+                    ]
+                },
+                {
+                    "fk_name": "fk_4",
+                    "local_name": "superclasslist",
+                    "to_parent_name": "superclasslist",
+                    "from_columns_in_pk": [
+                        1
+                    ]
+                }
+            ],
+            "the_column_attributes": [
+                {
+                    "name": "TBD",
+                    "is_optional": false,
+                    "is_unique": false
+                }
+            ],
+            "the_related_columns": [],
+            "pk_child_tables_names": [],
+            "relatives_childs_tables_names": []
+        }
+    ]
+}

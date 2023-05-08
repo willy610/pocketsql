@@ -1,0 +1,91 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug grammar2parser",
+      "program": "${workspaceFolder}/bin/grammar2parser",
+      "args": [ "-g",
+        "sql","-p","src/pocketlib/compilesqlextendedDEBUG.cr","-c","src/dbschema2X/compilecreateastTEMPLATE.json",
+        //"sql", "-p", "./src/pocketlib/parse/parsesqlextended.cr",
+      ],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug dbschema2X",
+      "program": "${workspaceFolder}/bin/dbschema2X",
+      "args": [
+        "-s",
+        "./src/dbschema2X/examples/create/createrecept.sql",
+        "-t",
+        "ENGINE = InnoDB DEFAULT CHARSET = UTF8MB4",
+        // "-2","./xtva.json",
+        "-d",
+        "./src/dbschema2X/examples/dbdef/createrecept.json",
+        "-c",
+        "zzz.zzz",
+      ],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug tryout",
+      "program": "${workspaceFolder}/bin/tryout",
+      // "args": ["-s", "./examples/data/hexkitteln/kollreceptstegsingrediens.sql","-x"
+      // "args": ["-s", "./examples/sql/showtables.sql","-x","-o","-d"
+      // "args": ["-c", "./examples/ascode/eget2.json","-x","-o","-d"
+      // "args": ["-s", "./examples/sql/param2.sql","-x","-o","-d","-p","./examples/params/params1.json"
+      "args": [
+        "-s",
+        "./examples/sql/nation3.KOLLsql",
+        "-x",
+        "-o",
+        "-d"
+      ],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug dirscanner",
+      "program": "${workspaceFolder}/bin/dirscanner",
+      "args": [
+        "-d",
+        "/Users/sixten/Library"
+      ],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug httpsqlserver",
+      "program": "${workspaceFolder}/bin/httpsqlserver",
+      "args": [],
+      "cwd": "${workspaceFolder}"
+    },
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug docextractor",
+      "program": "${workspaceFolder}/bin/docextractor",
+      "args": ["./docs/index.json"],
+      "cwd": "${workspaceFolder}"
+    }
+    ,
+    {
+      "type": "lldb",
+      "request": "launch",
+      "name": "Debug verifyschema",
+      "program": "${workspaceFolder}/bin/verifyschema",
+      "args": ["-s","browse"],
+      "cwd": "${workspaceFolder}"
+    }
+  ]
+}

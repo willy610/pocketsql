@@ -1,0 +1,10 @@
+SELECT
+    GENAD.COLA,
+    GENAD.COLC,
+    GENAD.COLB
+FROM
+VALUES
+    ('43619', '56', '49'),
+    ('45', '46', '51') AS GENAD (COLA, COLB, COLC)
+WHERE
+    GENAD.COLB - 11 != 80 / 2 + 5;

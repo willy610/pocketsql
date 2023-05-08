@@ -1,0 +1,66 @@
+{
+    "the_Query": {
+        "tag": "Query",
+        "cte_plain": [],
+        "cte_recur": [],
+        "subq": {
+            "tag_SubQuery": "SubQuery",
+            "distinct": false,
+            "the_from": {
+                "from_QRLoadFromStore": {
+                    "tag_QRLoadFromStore": "QRLoadFromStore",
+                    "tablename": "modulesource",
+                    "as_tablename": "",
+                    "as_colnames": []
+                }
+            },
+            "whereexpr": {
+                "tag": "QRWhere",
+                "first_cond_expr": {
+                    "tag": "QROneCondExpr",
+                    "oper": {
+                        "tag": "QRDualCompareOperation",
+                        "value": "="
+                    },
+                    "left_scalaritem": {
+                        "tag_QRScalarExpr": "QRScalarExpr",
+                        "first_scalar": {
+                            "item_QRLoadColnameValueOntoStack": {
+                                "tag_QRLoadColnameValueOntoStack": "QRLoadColnameValueOntoStack",
+                                "tablename": "modulesource",
+                                "colname": "filename"
+                            }
+                        },
+                        "more_scalars": []
+                    },
+                    "right_scalaritem": {
+                        "tag_QRScalarExpr": "QRScalarExpr",
+                        "first_scalar": {
+                            "item_QRLoadParamNameOnStack": {
+                                "tag_QRLoadParamNameOnStack": "QRLoadParamNameOnStack",
+                                "paramname": "filenam"
+                            }
+                        },
+                        "more_scalars": []
+                    }
+                },
+                "more_cond_expr": []
+            },
+            "project": {
+                "tag": "QRProject",
+                "astablename": "NOASTABLENAME",
+                "columns": [
+                    {
+                        "tag_QRProjectItem": "QRProjectItem",
+                        "kind": "p_tbl_col",
+                        "look_up_tablename": "modulesource",
+                        "look_up_colname": "module",
+                        "as_colname": "module",
+                        "literalvalue": "",
+                        "generated_aggr_name": ""
+                    }
+                ]
+            }
+        }
+    }
+}

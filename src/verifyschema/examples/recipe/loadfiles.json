@@ -1,0 +1,40 @@
+{
+    "rot":"roten",
+    "tables":[
+        {
+            "tablenam": "Kategori",
+            "columns" :["Kategori", "Kategoribeskrivning"],
+            "data_file_name": "./examples/data/hexkitteln/kategori.csv"
+        },
+        {
+            "tablenam": "Livsmedel",
+            "columns" :["Livsmedel", "kcal", "notering", "pris"],
+            "data_file_name": "./examples/data/hexkitteln/livsmedel.csv"
+        },
+        {
+            "tablenam": "Recept",
+            "columns" :["Recept", "AntalPortioner", "TillagningsTid", "Ursprung", "Beskrivning", "Skapad"],
+            "data_file_name": "./examples/data/hexkitteln/recept.csv"
+        },
+        {
+            "tablenam": "KategoriOchRecept",
+            "columns" :["Kategori", "Recept"],
+            "data_file_name": "./examples/data/hexkitteln/kategorirecept.csv"
+        },
+        {
+            "tablenam": "Receptsteg",
+            "columns" :["Recept", "Steg", "Kortbeskrivning", "Minuter", "Beskrivning"],
+            "data_file_name": "./examples/data/hexkitteln/receptsteg.csv"
+        },
+        {
+            "tablenam": "Receptstegsingrediens",
+            "columns" :["Recept", "Steg", "Livsmedel", "Antal", "Enhet"],
+            "data_file_name": "./examples/data/hexkitteln/receptstegsingrediens.csv"
+        },
+        {
+            "tablenam": "ReplaceIngred",
+            "columns" :["Livsmedel", "NYTT_Livsmedel", "pref_Kategori","pref_Recept","FOM"],
+            "data_file_name": "./examples/data/hexkitteln/replaceingred.csv"
+        }
+    ]
+}

@@ -1,0 +1,5 @@
+body {font-family: "Menlo"; font-size: 12px;}
+a {
+  color: black;
+}
+textarea,input {font-family: "Menlo"; font-size: 12px;background-color:black; color:white;}

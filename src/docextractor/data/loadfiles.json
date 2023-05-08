@@ -1,0 +1,30 @@
+{
+    "rot":"roten",
+    "tables":[
+        {
+            "tablenam": "module",
+            "columns" :["module", "htmlid"],
+            "data_file_name": "./src/docextractor/data/module.csv"
+        },
+        {
+            "tablenam": "class",
+            "columns" :["class", "htmlid"],
+            "data_file_name": "./src/docextractor/data/class.csv"
+        },
+        {
+            "tablenam": "method",
+            "columns" :["method", "htmlid"],
+            "data_file_name": "./src/docextractor/data/method.csv"
+        },
+        {
+            "tablenam": "classmethod",
+            "columns" :["class", "method","TBD"],
+            "data_file_name": "./src/docextractor/data/classmethod.csv"
+        },
+        {
+            "tablenam": "modulemethod",
+            "columns" :["module", "method","TBD"],
+            "data_file_name": "./src/docextractor/data/modulemethod.csv"
+        }
+    ]
+}

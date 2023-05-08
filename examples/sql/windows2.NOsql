@@ -1,0 +1,6 @@
+
+SELECT employee.Name, employee.Age, employee.Department, employee.Salary, 
+AVG(employee.Salary) OVER(XXX)  AS Avg_Salary
+ FROM WINDOW1 AS employee(Name,Age,Department,Salary) 
+ WINDOW XXX  AS  (PARTITION BY employee.Department ORDER BY 2 DESC)
+ ;

@@ -1,0 +1,11 @@
+SELECT
+    SSS.SNO,
+    SSS.SNAME,
+    SSS.STATUS,
+    SSS.SIZE
+FROM
+VALUES
+    ('S1', "Smith", 20, 45.56),
+    ('S2', "Jonson", 18, 45.56) AS SSS (SNO, SNAME, STATUS, SIZE)
+WHERE
+    SSS.STATUS >= 19;

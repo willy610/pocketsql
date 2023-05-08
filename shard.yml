@@ -1,0 +1,25 @@
+name: pocketsql
+version: 0.1.0
+
+authors:
+  - Willy Svenningsson <willy@fager.st>
+
+targets:
+  grammar2parser:
+    main: src/grammar2parser/main.cr
+  dbschema2X:
+    main: src/dbschema2X/main.cr
+  tryout:
+    main: src/tryout/main.cr
+  dirscanner:
+    main: src/dirscanner/main.cr
+  verifyschema:
+    main: src/verifyschema/main.cr
+  httpsqlserver:
+    main: src/httpsqlserver/main.cr
+  docextractor:
+    main: src/docextractor/main.cr
+
+crystal: 1.4.1
+
+license: MIT

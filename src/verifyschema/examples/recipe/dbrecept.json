@@ -1,0 +1,399 @@
+{
+    "tables": [
+        {
+            "name": "Livsmedel",
+            "kind": "entity",
+            "the_lastused_rowid": 0,
+            "the_columns": [
+                "Livsmedel",
+                "kcal",
+                "notering",
+                "pris"
+            ],
+            "the_pk_col_names": [
+                "Livsmedel"
+            ],
+            "index_own_pk": [],
+            "the_col_index_pk": [
+                0
+            ],
+            "the_parents": [],
+            "the_column_attributes": [
+                {
+                    "name": "kcal",
+                    "is_optional": false,
+                    "is_unique": false
+                },
+                {
+                    "name": "notering",
+                    "is_optional": false,
+                    "is_unique": false
+                },
+                {
+                    "name": "pris",
+                    "is_optional": false,
+                    "is_unique": false
+                }
+            ],
+            "the_related_columns": [],
+            "pk_child_tables_names": [
+                "Receptstegsingrediens",
+                "ReplaceIngred",
+                "ReplaceIngred"
+            ],
+            "relatives_childs_tables_names": []
+        },
+        {
+            "name": "Kategori",
+            "kind": "entity",
+            "the_lastused_rowid": 0,
+            "the_columns": [
+                "Kategori",
+                "Kategoribeskrivning"
+            ],
+            "the_pk_col_names": [
+                "Kategori"
+            ],
+            "index_own_pk": [],
+            "the_col_index_pk": [
+                0
+            ],
+            "the_parents": [],
+            "the_column_attributes": [
+                {
+                    "name": "Kategoribeskrivning",
+                    "is_optional": false,
+                    "is_unique": false
+                }
+            ],
+            "the_related_columns": [],
+            "pk_child_tables_names": [
+                "KategoriOchRecept"
+            ],
+            "relatives_childs_tables_names": []
+        },
+        {
+            "name": "Recept",
+            "kind": "entity",
+            "the_lastused_rowid": 0,
+            "the_columns": [
+                "Recept",
+                "AntalPortioner",
+                "TillagningsTid",
+                "Ursprung",
+                "Beskrivning"
+            ],
+            "the_pk_col_names": [
+                "Recept"
+            ],
+            "index_own_pk": [],
+            "the_col_index_pk": [
+                0
+            ],
+            "the_parents": [],
+            "the_column_attributes": [
+                {
+                    "name": "AntalPortioner",
+                    "is_optional": false,
+                    "is_unique": false
+                },
+                {
+                    "name": "TillagningsTid",
+                    "is_optional": false,
+                    "is_unique": false
+                },
+                {
+                    "name": "Ursprung",
+                    "is_optional": false,
+                    "is_unique": false
+                },
+                {
+                    "name": "Beskrivning",
+                    "is_optional": false,
+                    "is_unique": false
+                }
+            ],
+            "the_related_columns": [],
+            "pk_child_tables_names": [
+                "KategoriOchRecept",
+                "Receptsteg"
+            ],
+            "relatives_childs_tables_names": []
+        },
+        {
+            "name": "KategoriOchRecept",
+            "kind": "relation",
+            "the_lastused_rowid": 0,
+            "the_columns": [
+                "Kategori",
+                "Recept"
+            ],
+            "the_pk_col_names": [
+                "Kategori",
+                "Recept"
+            ],
+            "index_own_pk": [],
+            "the_col_index_pk": [
+                0,
+                1
+            ],
+            "the_parents": [
+                {
+                    "fk_name": "fk_1",
+                    "local_name": "Kategori",
+                    "to_parent_name": "Kategori",
+                    "from_columns_in_pk": [
+                        0
+                    ]
+                },
+                {
+                    "fk_name": "fk_2",
+                    "local_name": "Recept",
+                    "to_parent_name": "Recept",
+                    "from_columns_in_pk": [
+                        1
+                    ]
+                }
+            ],
+            "the_column_attributes": [],
+            "the_related_columns": [],
+            "pk_child_tables_names": [],
+            "relatives_childs_tables_names": [
+                {
+                    "to_child_table": "ReplaceIngred",
+                    "to_child_columns": [
+                        "pref_Kategori",
+                        "pref_Recept"
+                    ]
+                },
+                {
+                    "to_child_table": "ReplaceIngred",
+                    "to_child_columns": [
+                        "pref_Kategori",
+                        "pref_Recept"
+                    ]
+                }
+            ]
+        },
+        {
+            "name": "Receptsteg",
+            "kind": "relation",
+            "the_lastused_rowid": 0,
+            "the_columns": [
+                "Recept",
+                "Steg",
+                "Kortbeskrivning",
+                "Minuter",
+                "Beskrivning"
+            ],
+            "the_pk_col_names": [
+                "Recept",
+                "Steg"
+            ],
+            "index_own_pk": [
+                1
+            ],
+            "the_col_index_pk": [
+                0,
+                1
+            ],
+            "the_parents": [
+                {
+                    "fk_name": "fk_3",
+                    "local_name": "Recept",
+                    "to_parent_name": "Recept",
+                    "from_columns_in_pk": [
+                        0
+                    ]
+                }
+            ],
+            "the_column_attributes": [
+                {
+                    "name": "Kortbeskrivning",
+                    "is_optional": false,
+                    "is_unique": false
+                },
+                {
+                    "name": "Minuter",
+                    "is_optional": false,
+                    "is_unique": false
+                },
+                {
+                    "name": "Beskrivning",
+                    "is_optional": false,
+                    "is_unique": false
+                }
+            ],
+            "the_related_columns": [],
+            "pk_child_tables_names": [
+                "Receptstegsingrediens"
+            ],
+            "relatives_childs_tables_names": []
+        },
+        {
+            "name": "Receptstegsingrediens",
+            "kind": "relation",
+            "the_lastused_rowid": 0,
+            "the_columns": [
+                "Recept",
+                "Steg",
+                "Livsmedel",
+                "Antal",
+                "Enhet"
+            ],
+            "the_pk_col_names": [
+                "Recept",
+                "Steg",
+                "Livsmedel"
+            ],
+            "index_own_pk": [],
+            "the_col_index_pk": [
+                0,
+                1,
+                2
+            ],
+            "the_parents": [
+                {
+                    "fk_name": "fk_4",
+                    "local_name": "Receptsteg",
+                    "to_parent_name": "Receptsteg",
+                    "from_columns_in_pk": [
+                        0,
+                        1
+                    ]
+                },
+                {
+                    "fk_name": "fk_5",
+                    "local_name": "Livsmedel",
+                    "to_parent_name": "Livsmedel",
+                    "from_columns_in_pk": [
+                        2
+                    ]
+                }
+            ],
+            "the_column_attributes": [
+                {
+                    "name": "Antal",
+                    "is_optional": false,
+                    "is_unique": false
+                },
+                {
+                    "name": "Enhet",
+                    "is_optional": false,
+                    "is_unique": false
+                }
+            ],
+            "the_related_columns": [],
+            "pk_child_tables_names": [],
+            "relatives_childs_tables_names": []
+        },
+        {
+            "name": "ReplaceIngred",
+            "kind": "relation",
+            "the_lastused_rowid": 0,
+            "the_columns": [
+                "Livsmedel",
+                "NYTT_Livsmedel",
+                "pref_Kategori",
+                "pref_Recept",
+                "FOM"
+            ],
+            "the_pk_col_names": [
+                "Livsmedel",
+                "NYTT_Livsmedel"
+            ],
+            "index_own_pk": [],
+            "the_col_index_pk": [
+                0,
+                1
+            ],
+            "the_parents": [
+                {
+                    "fk_name": "fk_6",
+                    "local_name": "Livsmedel",
+                    "to_parent_name": "Livsmedel",
+                    "from_columns_in_pk": [
+                        0
+                    ]
+                },
+                {
+                    "fk_name": "fk_7",
+                    "local_name": "NYTT_Livsmedel",
+                    "to_parent_name": "Livsmedel",
+                    "from_columns_in_pk": [
+                        1
+                    ]
+                }
+            ],
+            "the_column_attributes": [
+                {
+                    "name": "pref_Kategori",
+                    "is_optional": false,
+                    "is_unique": false,
+                    "relative_entity": {
+                        "col_names": [
+                            "pref_Kategori",
+                            "pref_Recept"
+                        ],
+                        "to_parent_name": "KategoriOchRecept",
+                        "is_optional": false,
+                        "from_columns_in_own_row": [
+                            2,
+                            3
+                        ]
+                    }
+                },
+                {
+                    "name": "pref_Recept",
+                    "is_optional": false,
+                    "is_unique": false,
+                    "relative_entity": {
+                        "col_names": [
+                            "pref_Kategori",
+                            "pref_Recept"
+                        ],
+                        "to_parent_name": "KategoriOchRecept",
+                        "is_optional": false,
+                        "from_columns_in_own_row": [
+                            2,
+                            3
+                        ]
+                    }
+                },
+                {
+                    "name": "FOM",
+                    "is_optional": false,
+                    "is_unique": false
+                }
+            ],
+            "the_related_columns": [
+                {
+                    "col_names": [
+                        "pref_Kategori",
+                        "pref_Recept"
+                    ],
+                    "to_parent_name": "KategoriOchRecept",
+                    "is_optional": false,
+                    "from_columns_in_own_row": [
+                        2,
+                        3
+                    ]
+                },
+                {
+                    "col_names": [
+                        "pref_Kategori",
+                        "pref_Recept"
+                    ],
+                    "to_parent_name": "KategoriOchRecept",
+                    "is_optional": false,
+                    "from_columns_in_own_row": [
+                        2,
+                        3
+                    ]
+                }
+            ],
+            "pk_child_tables_names": [],
+            "relatives_childs_tables_names": []
+        }
+    ]
+}

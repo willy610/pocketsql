@@ -1,0 +1,3 @@
+SELECT * FROM 
+WINDOW1 AS employee(Name,Age,Depratment,Salary)
+;

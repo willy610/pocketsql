@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="mv.js"></script>
+    <script type="text/javascript" src="go.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <!--    <img src="close.gif" alt="Flowers in Chania"> -->
+
+<body onload='go()' ;>
+    <div>
+        <div id="col_1" style="float:left;float:left;overflow:scroll;height:1000px;">
+            <h4>Modules:</h4>
+            <div id="div_modules" style="background-color: rgb(181, 241, 181);overflow:scroll;height:500px;">
+                Row 1
+            </div>
+            <h4>Classes:</h4>
+            <div id="div_classes" style="background-color:rgb(238, 250, 187);overflow:scroll;height:500px;">
+                Row 2
+            </div>
+        </div>
+        <div id="col_2" style="float:left;overflow:scroll;height:1000px;">
+            <h4>Module Content</h4>
+            <div id="div_one_module" style="background-color: rgb(196, 189, 196);">
+            </div>
+            <h4>Class Methods</h4>
+            <div id="div_one_class" style="background-color:rgb(140, 229, 251)">
+            </div>
+        </div>
+        <div id="col_3" style="float:left;overflow:scroll;height:1000px;">
+        </div>
+
+        <div style="clear:both;"></div>
+
+        <div id="bottom" style="overflow:scroll;width:1000px;">
+            <label for="querystatment">Own Query:</label>
+            <textarea id="querystatment" name="querystatment" rows="5" cols="50" style="vertical-align:top;">
+-- Evaluate whatever
+SHOW TABLES ;
+SHOW TABLE classmethod ;
+SELECT classmethod.method, COUNT(classmethod.method) AS COUNT_classes
+  FROM classmethod 
+GROUP BY classmethod.method
+ORDER BY 1;
+</textarea><br>
+            <button type="button" onclick=" javascript:querystatment(); ">Run</button>
+            <div id="queryresult"></div>
+        </div>
+    </div>
+</body>
+
+</html>
