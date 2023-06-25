@@ -1,6 +1,6 @@
 class Table
   # ========================================
-  def insert_rows(in_colnames_array : Array(String), rows : Array(Array(String))) : {Nil | Table, String}
+  def insert_rows(in_colnames_array : Array(String), rows : Array(Array(String)), replace = false) : {Nil | Table, String}
     rows.each { |a_row|
       # puts a_row
       new_row : Array(String) = [] of String
@@ -11,16 +11,33 @@ class Table
         else
           # STDERR.puts "@the_columns=#{@the_columns}"
           # STDERR.puts "in_colnames_array=#{in_colnames_array}"
+          puts "!" + __FILE__ + ":" + __LINE__.to_s
+          puts in_colnames_array
+          puts @the_columns
           return nil, "Mandatory Colname '#{self_col_name}' missing in table '#{@name}'"
         end
       }
       # Ensure no duplicate on primary key
       #
-      # STDERR.puts @the_col_index_pk
       new_pk : PkValue = @the_col_index_pk.map { |i| new_row[i] }
       if @the_pks.has_key?(new_pk)
-        pp @the_pks.keys
-        return nil, "Duplicate entry for key '#{new_pk}' in '#{@name}'"
+        if replace == true
+          row_id = @the_pks[new_pk]
+          if !row_id.nil?
+            col_names : Array(String) = [] of String
+            new_values : Array(String) = [] of String
+            in_colnames_array.each_with_index { |in_column, col_index|
+              if !((@the_pk_col_names.includes?(in_column)))
+                col_names << in_column
+                new_values << a_row[col_index]
+              end
+            }
+            return update_attributes(row_number: row_id, col_names: col_names, new_values: new_values)
+          end
+        else
+          pp @the_pks.keys
+          return nil, "Duplicate entry for key '#{new_pk}' in '#{@name}'"
+        end
       end
       #
       # Do we have any related attribute
