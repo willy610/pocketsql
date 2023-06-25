@@ -267,8 +267,8 @@ class CompileAst
         raise "r_insertbody() table 'r_SQString_Lx' must have alias"
       end
     elsif stpr.content_now.kind == "lexem" && stpr.content_now.rule_name == "r_Identifier_Lx"
-      stpr.next
       destination = stpr.content_now.value
+      stpr.next
     else
       pp stpr.content_now
       raise "build_CUD_destination() failed"
@@ -318,7 +318,7 @@ class CompileAst
     elsif tabe_or_file.is_a?(QR::QrLoadFileFile)
       a_QRCUD.destination_QrLoadFileFile = tabe_or_file
     end
-    # 
+    #
     # stpr.next
     if !(stpr.content_now.kind == "resword" && stpr.content_now.value == "SET")
       pp stpr.content_now
@@ -1704,12 +1704,8 @@ class CompileAst
     end
     stpr = Stepper.new(rules)
     if (stpr.content_now.kind == "resword" && stpr.content_now.value == "VALUES")
-        # puts "!" + __FILE__ + ":" + __LINE__.to_s
-        # pp rules
-        stpr.next
-        ret = r_value_list(stpr.content_now)
-        # pp ret
-        # stpr.next
+      stpr.next
+      ret = r_value_list(stpr.content_now)
     elsif (stpr.content_now.kind == "resoper" && stpr.content_now.value == "(")
       stpr.next
       ret = r_scalarexpselectbodyorscalarexp(stpr.content_now)
